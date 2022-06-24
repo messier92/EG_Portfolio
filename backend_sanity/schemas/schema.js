@@ -7,6 +7,7 @@ import abouts from './about'
 import brands from './brands'
 import contact from './contact'
 import experiences from './experiences'
+import skills from './skills'
 import workExperience from './workExperience'
 import works from './works'
 
@@ -18,6 +19,6 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     /* Your types here! */
-    testimonials, abouts, brands, contact, experiences, workExperience, works
+    testimonials, abouts, brands, contact, experiences, workExperience, works, skills
   ]),
 })
