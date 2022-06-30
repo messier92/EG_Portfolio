@@ -23,6 +23,8 @@ const Skills = () => {
     });
   }, []);
 
+  const [tooltip, showTooltip] = useState(true);
+
   return (
     <>
       <h2 className="head-text">Skills & Experiences</h2>
@@ -60,7 +62,7 @@ const Skills = () => {
                   <>
                     <motion.div
                       whileInView={{ opacity: [0, 1] }}
-                      transition={{ duration: 0.5 }}
+                      transition={{ duration: 0.1 }}
                       className="app__skills-exp-work"
                       data-tip
                       data-for={work.name}
@@ -69,14 +71,20 @@ const Skills = () => {
                       <h4 className="bold-text">{work.name}</h4>
                       <p className="p-text">{work.company}</p>
                     </motion.div>
-                    <ReactTooltip
-                      id={work.name}
-                      effect="solid"
-                      arrowColor="#fff"
-                      className="skills-tooltip"
-                    >
-                      {work.desc}
-                    </ReactTooltip>
+                    <>
+ {tooltip && <ReactTooltip effect="solid" arrowColor="#fff"
+                      className="skills-tooltip"/>}
+ <p
+   id={work.name}
+   onMouseEnter={() => showTooltip(true)}
+   onMouseLeave={() => {
+     showTooltip(false);
+   }}
+ />
+ {work.desc}
+</>
+
+
                   </>
                 ))}
               </motion.div>

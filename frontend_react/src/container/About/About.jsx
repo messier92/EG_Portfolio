@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {motion} from 'framer-motion';
 import {AppWrap, MotionWrap} from '../../wrapper';
-import {images} from '../../constants';
 import './About.scss';
 import {urlFor, client} from '../../client';
 
@@ -12,17 +11,17 @@ const About = () => {
     useEffect(() => {
         const query = '*[_type == "abouts"]';
         client.fetch(query)
-        .then((data) => setAbouts(data))        
+        .then((data) => setAbouts(data))       
     }, []);
 
     return (
         <>
             <h2 className="head-text">
-                I Know That
-                <span> Good Development</span>
+                I Aim To Build 
+                <span> Quality Software</span>
                 <br />
-                means
-                <span> Good Business</span>
+                To
+                <span> Improve The Lives Of People Around Us</span>
             </h2>
 
             <div className="app__profiles">

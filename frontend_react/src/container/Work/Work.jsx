@@ -40,7 +40,7 @@ const Work = () => {
         <>
         <h2 className="head-text">My Creative <span>Portfolio</span></h2>
         <div className="app__work-filter">
-            {['UI/UX', 'Web App', 'Mobile App', 'React JS', 'All'].map((item, index) => (
+            {['Computer Vision', 'Web Development', 'Data Analytics', 'All'].map((item, index) => (
                 <div key={index}
                 onClick={()=> handleWorkFilter(item)} 
                 className={`app__work-filter-item app__flex p-text ${activeFilter === item ? 'item-active' : ''}`}>
@@ -68,7 +68,8 @@ const Work = () => {
                                 whileHover={{scale: [1,0.9]}}
                                 transition={{duration:0.25}}
                                 className="app__flex">
-                                    <AiFillEye/>                            </motion.div>
+                                    <AiFillEye/>                            
+                                </motion.div>
                             </a>
 
                             <a href={work.codeLink} target="_blank" rel="noref">
