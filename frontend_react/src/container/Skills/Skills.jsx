@@ -14,8 +14,21 @@ const Skills = () => {
     const query = '*[_type == "experiences"]';
     const skillsQuery = '*[_type == "skills"]';
 
-    client.fetch(query).then((data) => {
-      setExperiences(data);
+    function compare(a, b) 
+    {
+      if (a.works[0].startYear > b.works[0].startYear) return 1;
+      if (a.works[0].startYear < b.works[0].startYear) return -1;
+      return 0;
+    }
+
+    function sortExperiences(data) {
+      const sortedExperience = [...data].sort(compare);
+      setExperiences(sortedExperience);
+    }
+
+
+    client.fetch(query).then((data) => {    
+      sortExperiences(data); 
     });
 
     client.fetch(skillsQuery).then((data) => {
@@ -64,7 +77,6 @@ const Skills = () => {
                       whileInView={{ opacity: [0, 1] }}
                       transition={{ duration: 0.1 }}
                       className="app__skills-exp-work"
-                      data-tip
                       data-for={work.name}
                       key={work.name}
                     >
@@ -72,19 +84,12 @@ const Skills = () => {
                       <p className="p-text">{work.company}</p>
                     </motion.div>
                     <>
- {tooltip && <ReactTooltip effect="solid" arrowColor="#fff"
-                      className="skills-tooltip"/>}
- <p
-   id={work.name}
-   onMouseEnter={() => showTooltip(true)}
-   onMouseLeave={() => {
-     showTooltip(false);
-   }}
- />
- {work.desc}
-</>
-
-
+                   
+                    <p id={work.name}  
+                    onMouseLeave={() => {showTooltip(false);}}
+                    />
+                    {work.desc}
+                    </>
                   </>
                 ))}
               </motion.div>

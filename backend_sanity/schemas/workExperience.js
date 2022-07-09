@@ -17,6 +17,11 @@ export default {
                 name:'desc',
                 title:'Desc',
                 type:'string'
+            },
+            {
+                name: 'startYear',
+                title: 'Starting Year',
+                type: 'date'
             }
     ]
 }

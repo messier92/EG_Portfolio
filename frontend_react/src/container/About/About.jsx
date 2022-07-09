@@ -17,6 +17,8 @@ const About = () => {
     return (
         <>
             <h2 className="head-text">
+                Hello! I am <span> Eugene Goh</span>
+                <br/>
                 I Aim To Build 
                 <span> Quality Software</span>
                 <br />
