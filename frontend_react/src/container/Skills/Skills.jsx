@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import ReactTooltip from 'react-tooltip';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
@@ -36,8 +35,6 @@ const Skills = () => {
     });
   }, []);
 
-  const [tooltip, showTooltip] = useState(true);
-
   return (
     <>
       <h2 className="head-text">Skills & Experiences</h2>
@@ -61,6 +58,7 @@ const Skills = () => {
             </motion.div>
           ))}
         </motion.div>
+        
         <div className="app__skills-exp">
           {experiences.map((experience) => (
             <motion.div
@@ -86,7 +84,6 @@ const Skills = () => {
                     <>
                    
                     <p id={work.name}  
-                    onMouseLeave={() => {showTooltip(false);}}
                     />
                     {work.desc}
                     </>
@@ -101,4 +98,4 @@ const Skills = () => {
   );
 };
 
-export default AppWrap(MotionWrap(Skills, 'app__skills'), 'skills', 'app__whitebg');
+export default AppWrap(MotionWrap(Skills, 'app__skills'), 'skills', 'app__primarybg');

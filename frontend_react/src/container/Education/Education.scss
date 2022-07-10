@@ -1,39 +1,39 @@
-.app__skills {
+.app__education {
     flex: 1;
     width: 100%;
     flex-direction: column;
   }
   
-  .app__skills-container {
-    width: 80%;
-    margin-top: 3rem;
+.app__education-container {
+  width: 80%;
+  margin-top: 3rem;
   
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
   
-    @media screen and (max-width: 900px) {
-      width: 100%;
-      flex-direction: column;
-    }
+  @media screen and (max-width: 900px) {
+    width: 100%;
+    flex-direction: column;
   }
+}
   
-  .app__skills-list {
-    flex: 1;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
+.app__education-list {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
   
-    margin-right: 5rem;
+  margin-right: 5rem;
   
-    @media screen and (max-width: 900px) {
-      margin-right: 0;
-      justify-content: center;
-      align-items: center;
-    }
+  @media screen and (max-width: 900px) {
+    margin-right: 0;
+    justify-content: center;
+    align-items: center;
   }
+}
   
-  .app__skills-item {
+  .app__education-item {
     flex-direction: column;
     text-align: center;
   
@@ -81,7 +81,7 @@
     }
   }
   
-  .app__skills-exp {
+  .app__education-exp {
     flex: 1;
     display: flex;
     justify-content: flex-start;
@@ -93,6 +93,8 @@
     }
   }
   
+
+
   .app__skills-exp-item {
     width: 100%;
     display: flex;
@@ -124,7 +126,7 @@
     }
   }
   
-  .app__skills-exp-year {
+  .app__education-exp-year {
     margin-right: 3rem;
   
     p {
@@ -136,3 +138,4 @@
       margin-right: 1rem;
     }
   }
+  
