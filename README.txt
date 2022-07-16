@@ -23,3 +23,9 @@ b. Frontend
 2. Add the new page into NavigationDots.jsx and Navbar.jsx
 3. Add the new page into the index.js as export {default as [CONTAINERNAME]} from './Education/Education';
 4. Add the new page into App.js as a container for it to be visualized 
+
+TO BUILD AND DEPLOY:
+1. Go to https://app.netlify.com/sites/gohhanlongeugene/deploys?filter, under the 'Deploys' tab
+2. In the frontend_react folder, bring up the cmd and execute "npm run build" - this will generate a new "build" folder
+3. Drag and drop the "build" folder into the link and deploy
+4. Remember to set the CORS origin to allow access into the Sanity backend

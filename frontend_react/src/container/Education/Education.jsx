@@ -8,6 +8,7 @@ import './Education.scss';
 const Education = () => {
 
     const [education, setEducation] = useState([])
+    const [certifications, setCertifications] = useState([])
 
     function compare(a, b) 
     {
@@ -21,6 +22,19 @@ const Education = () => {
       setEducation(sortedEducation);
     }
 
+    function sortCertifications(data) {
+      const sortedCertifications = [...data].sort(compare);
+      setCertifications(sortedCertifications);
+    }
+
+    useEffect(() => {
+      const certificationsQuery = '*[_type == "certifications"]'
+      client.fetch(certificationsQuery)
+      .then((data) => {
+        sortCertifications(data);
+      })
+  }, [])
+
     useEffect(() => {
         const educationQuery = '*[_type == "education"]'
         client.fetch(educationQuery)
@@ -31,43 +45,73 @@ const Education = () => {
    
     return (
         <>
-          <h2 className="head-text">My Certificates and Education</h2>
+          <h2 className="head-text">My <span>Certificates</span> and <span>Education</span></h2>
+
           <div className="app__education-container">
-          <motion.div className="app__education-list">
+          <div className="app__education-exp">     
             <h2>Certifications</h2>
-          </motion.div>
-
-
-          
-          <div className="app__education-container">
-            <motion.div className="app__education-list">
-            </motion.div>
-
-            <div className="app__education-exp">     
-              {education.map((school) => (
+              {certifications.map((certificate) => (
                 <motion.div
-                  className="app__skills-exp-item"
-                  key={school.year}
+                  className="app__education-exp-item"
+                  key={certificate.year}
                 >
                   <div className="app__education-exp-year">
-                    <p className="bold-text">{school.year}</p>
+                    <p className="bold-text">{certificate.year}</p>
                   </div>
-                  <motion.div className="app__skills-exp-works">
+                  <motion.div className="app__education-exp-schools">
                         <motion.div
                           whileInView={{ opacity: [0, 1] }}
                           transition={{ duration: 0.1 }}
-                          className="app__skills-exp-work"
-                          data-for={school.school}
-                          key={school.school}
+                          className="app__education-exp-school"
+                          data-for={certificate.school}
+                          key={certificate.school}
                         >
-                          <h4 className="bold-text">{school.school}</h4>
-                          <p className="p-text">{school.qualification}</p>
+                          <a href={certificate.href}><h2 className="bold-text">{certificate.qualification}</h2></a>
+                          <h2 className="p-text">{certificate.school}</h2>
                         </motion.div>
                   </motion.div>
                 </motion.div>
               ))}
             </div>
-          </div>
+
+
+
+
+
+            <div className="app__education-exp">     
+            <h2>Education</h2>
+              {education.map((school) => (
+                <motion.div
+                  className="app__education-exp-item"
+                  key={school.year}
+                >
+                  <div className="app__education-exp-year">
+                    <p className="bold-text">{school.year}</p>
+                  </div>
+                  <motion.div className="app__education-exp-schools">
+                        <motion.div
+                          whileInView={{ opacity: [0, 1] }}
+                          transition={{ duration: 0.1 }}
+                          className="app__education-exp-school"
+                          data-for={school.school}
+                          key={school.school}
+                        >
+                          <h2 className="bold-text">{school.school}</h2>
+                          <h2 className="p-text">{school.qualification}</h2>
+                        </motion.div>
+                        <motion.div
+                          whileInView={{ opacity: [0, 1] }}
+                          transition={{ duration: 0.1 }}
+                          className="app__education-exp-school"
+                          data-for={school.school}
+                          key={school.school}
+                        >
+                          <p className="p-text">{school.desc}</p>
+                        </motion.div>
+                  </motion.div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </>
       );
