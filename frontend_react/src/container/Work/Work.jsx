@@ -41,7 +41,7 @@ const Work = () => {
         <h2 className="head-text">My Creative <span>Portfolio</span></h2>
        
         <div className="app__work-filter">
-            {['Computer Vision', 'Web Development', 'Data Analytics', 'All'].map((item, index) => (
+            {['Computer Vision', 'Web/Mobile Development', 'Data Analytics', 'All'].map((item, index) => (
                 <div key={index}
                 onClick={()=> handleWorkFilter(item)} 
                 className={`app__work-filter-item app__flex p-text ${activeFilter === item ? 'item-active' : ''}`}>
